@@ -1,4 +1,4 @@
-<div style="text-align: center;">
+<div align="center">
 
 # ComputerPiano
 Piano multiplatform(Android, iOS, Windows, macOS) that focus on using a computer keyboard as efficiently as possible.
