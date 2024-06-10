@@ -9,9 +9,10 @@ Piano multiplatform(Android, iOS, Windows, macOS) that focus on using a computer
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How to Use</a> •
   <a href="#keymap">Keymap</a> •
-  <a href="#version">Download</a> •
-  <a href="#keymap">Keymap</a> •
+  <a href="#version">Version</a> •
   <a href="#download">Download</a> •
+  <a href="#build-from-source">Build from source</a> •
+  <a href="#contact-me">Contact me</a> •
 </p>
 
 </div>
