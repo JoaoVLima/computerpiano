@@ -9,7 +9,9 @@ Piano multiplatform(Android, iOS, Windows, macOS) that focus on using a computer
   <a href="#key-features">Key Features</a> •
   <a href="#how-to-use">How to Use</a> •
   <a href="#keymap">Keymap</a> •
-  <a href="#download">Download</a>
+  <a href="#version">Download</a> •
+  <a href="#keymap">Keymap</a> •
+  <a href="#download">Download</a> •
 </p>
 
 </div>
@@ -26,18 +28,40 @@ Piano multiplatform(Android, iOS, Windows, macOS) that focus on using a computer
 
 Download the app and connect a keyboard to the device.
 
+> [!TIP]
+> Change keycaps or lighting on the keyboard to help you find keys more easily.
+
 
 ## Keymap
 
 f1 to help
 
 
+## Version
+
+> [!WARNING]
+> This app is in prototyping stage
+ 
+* Prototyping
+  * Python, Kivy, Pydub
+* Production
+  * Kotlin, Rust, Swift
+
 ## Download
 
 | Platform  | Link                     	                                        |
 |:----------|:------------------------------------------------------------------|
-| Android   | [Google Play Store](https://play.google.com/) 	                   |
-| iOS       | [Apple App Store](https://www.apple.com/br/app-store/) 	          |
-| Windows 	 | [Windows WinGet](https://winstall.app/apps/Google.Chrome)         |
+| Android   | [Google PlayStore](https://play.google.com/) 	                    |
+| iOS       | [Apple AppStore](https://www.apple.com/br/app-store/) 	           |
+| Windows 	 | [Windows Winget](https://winstall.app/apps/Google.Chrome)         |
 | macOS   	 | [macOS Brew](https://formulae.brew.sh/cask/google-chrome#default) |
 
+## Build from source
+
+```bash
+echo wait...
+```
+
+## Contact me
+
+[joao@lima.dev](mailto://joao@lima.dev)
