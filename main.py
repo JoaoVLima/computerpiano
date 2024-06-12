@@ -1,5 +1,6 @@
 import math
 import itertools
+from collections import OrderedDict
 import numpy as np
 import pyaudio
 import pygame
@@ -10,86 +11,60 @@ BUFFER_SIZE = 256
 SAMPLE_RATE = 44100
 NOTE_AMP = 0.1
 
-LETTERS = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
-NUMBERS = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+PITCHES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+OCTAVES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+OCTAVE = 4
+NOTES = OrderedDict()
+for pitch in PITCHES:
+    for octave in OCTAVES:
+        note = pitch + str(octave)
+        NOTES[note] = {'freq': librosa.note_to_hz(note)}
 
-for letter in LETTERS:
-    for number in NUMBERS:
-        print(librosa.note_to_hz(letter + str(number)))
+# 0-11 octave 0
+# 12-23 octave 1
+# 24-35 octave 2
 
+OCTAVE
 
-def pythagorean_tempered_scale(a=A):
-    ...
+KEYMAP = {
+    'q': NOTES[0],
+    '2',
+    'w',
+    '3',
+    'e',
+    'r',
+    '5',
+    't',
+    '6',
+    'y',
+    '7',
+    'u',
+    'i',
+    '9',
+    'o',
+    '0',
+    'p',
+    'z',
+    's',
+    'x',
+    'd',
+    'c',
+    'f',
+    'v',
+    'b',
+    'h',
+    'n',
+    'j',
+    'm',
+    ',',
+    'l',
+    '.',
+    'ç',
+    ';',
+    '~',
+    '/'
+ }
 
-
-# Key to frequency mapping for a basic C-major scale
-KEY_FREQUENCY_MAP = {
-    pygame.K_a: 261.63,  # C4
-    pygame.K_s: 293.66,  # D4
-    pygame.K_d: 329.63,  # E4
-    pygame.K_f: 349.23,  # F4
-    pygame.K_g: 392.00,  # G4
-    pygame.K_h: 440.00,  # A4
-    pygame.K_j: 493.88,  # B4
-    pygame.K_k: 523.25,  # C5
+KEYS = {
+    ''
 }
-
-
-# Helper functions
-def get_sin_oscillator(freq=55, amp=1, sample_rate=SAMPLE_RATE):
-    increment = (2 * math.pi * freq) / sample_rate
-    return (
-        math.sin(v) * amp * NOTE_AMP for v in itertools.count(start=0, step=increment)
-    )
-
-
-def get_samples(notes_dict, num_samples=BUFFER_SIZE):
-    return [
-        sum([int(next(osc) * 32767) for _, osc in notes_dict.items()])
-        for _ in range(num_samples)
-    ]
-
-
-# Initialize PyAudio and Pygame
-p = pyaudio.PyAudio()
-stream = p.open(
-        rate=SAMPLE_RATE,
-        channels=1,
-        format=pyaudio.paInt16,
-        output=True,
-        frames_per_buffer=BUFFER_SIZE,
-)
-
-pygame.init()
-screen = pygame.display.set_mode((200, 200))
-
-# Run the synth
-try:
-    print("Starting...")
-    notes_dict = {}
-    running = True
-    while running:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                running = False
-            elif event.type == pygame.KEYDOWN and event.key in KEY_FREQUENCY_MAP:
-                freq = KEY_FREQUENCY_MAP[event.key]
-                if event.key not in notes_dict:
-                    notes_dict[event.key] = get_sin_oscillator(freq=freq, amp=1)
-            elif event.type == pygame.KEYUP and event.key in KEY_FREQUENCY_MAP:
-                if event.key in notes_dict:
-                    del notes_dict[event.key]
-
-        if notes_dict:
-            # Play the notes
-            samples = get_samples(notes_dict)
-            samples = np.int16(samples).tobytes()
-            stream.write(samples)
-
-except KeyboardInterrupt as err:
-    print("Stopping...")
-
-finally:
-    pygame.quit()
-    stream.close()
-    p.terminate()
