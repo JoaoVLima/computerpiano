@@ -1,0 +1,148 @@
+{
+    "keys": {
+        "q": {
+            "note": "C4",
+            "instrument": "Piano"
+        },
+        "2": {
+            "note": "C#4",
+            "instrument": "Piano"
+        },
+        "w": {
+            "note": "D4",
+            "instrument": "Piano"
+        },
+        "3": {
+            "note": "D#4",
+            "instrument": "Piano"
+        },
+        "e": {
+            "note": "E4",
+            "instrument": "Piano"
+        },
+        "r": {
+            "note": "F4",
+            "instrument": "Piano"
+        },
+        "5": {
+            "note": "F#4",
+            "instrument": "Piano"
+        },
+        "t": {
+            "note": "G4",
+            "instrument": "Piano"
+        },
+        "6": {
+            "note": "G#4",
+            "instrument": "Piano"
+        },
+        "y": {
+            "note": "A4",
+            "instrument": "Piano"
+        },
+        "7": {
+            "note": "A#4",
+            "instrument": "Piano"
+        },
+        "u": {
+            "note": "B4",
+            "instrument": "Piano"
+        },
+        "i": {
+            "note": "C5",
+            "instrument": "Piano"
+        },
+        "9": {
+            "note": "C#5",
+            "instrument": "Piano"
+        },
+        "o": {
+            "note": "D5",
+            "instrument": "Piano"
+        },
+        "0": {
+            "note": "D#5",
+            "instrument": "Piano"
+        },
+        "p": {
+            "note": "E5",
+            "instrument": "Piano"
+        },
+        "z": {
+            "note": "F5",
+            "instrument": "Piano"
+        },
+        "s": {
+            "note": "F#5",
+            "instrument": "Piano"
+        },
+        "x": {
+            "note": "G5",
+            "instrument": "Piano"
+        },
+        "d": {
+            "note": "G#5",
+            "instrument": "Piano"
+        },
+        "c": {
+            "note": "A5",
+            "instrument": "Piano"
+        },
+        "f": {
+            "note": "A#5",
+            "instrument": "Piano"
+        },
+        "v": {
+            "note": "B5",
+            "instrument": "Piano"
+        },
+        "b": {
+            "note": "C6",
+            "instrument": "Piano"
+        },
+        "h": {
+            "note": "C#6",
+            "instrument": "Piano"
+        },
+        "n": {
+            "note": "D6",
+            "instrument": "Piano"
+        },
+        "j": {
+            "note": "D#6",
+            "instrument": "Piano"
+        },
+        "m": {
+            "note": "E6",
+            "instrument": "Piano"
+        },
+        ",": {
+            "note": "F6",
+            "instrument": "Piano"
+        },
+        "l": {
+            "note": "F#6",
+            "instrument": "Piano"
+        },
+        ".": {
+            "note": "G6",
+            "instrument": "Piano"
+        },
+        "ç": {
+            "note": "G#6",
+            "instrument": "Piano"
+        },
+        ";": {
+            "note": "A6",
+            "instrument": "Piano"
+        },
+        "~": {
+            "note": "A#6",
+            "instrument": "Piano"
+        },
+        "/": {
+            "note": "B6",
+            "instrument": "Piano"
+        }
+    }
+}

@@ -5,66 +5,40 @@ import numpy as np
 import pyaudio
 import pygame
 import librosa
+import json
 
-# Constants
-BUFFER_SIZE = 256
+BUFFER_SIZE = 128
 SAMPLE_RATE = 44100
-NOTE_AMP = 0.1
 
 PITCHES = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
 OCTAVES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-OCTAVE = 4
-NOTES = OrderedDict()
-for pitch in PITCHES:
-    for octave in OCTAVES:
+FREQUENCIES = []
+for octave in OCTAVES:
+    for pitch in PITCHES:
         note = pitch + str(octave)
-        NOTES[note] = {'freq': librosa.note_to_hz(note)}
+        FREQUENCIES.append(librosa.note_to_hz(note))
 
 # 0-11 octave 0
 # 12-23 octave 1
 # 24-35 octave 2
+# 36-47 octave 3
+# 48-47 octave 4
+# 60-71 octave 5
+# 72-83 octave 6
+# 84-95 octave 7
+# 96-107 octave 8
+# 108-119 octave 9
 
-OCTAVE
+OCTAVE = 4
+FIRST_NOTE = 12 * OCTAVE
 
-KEYMAP = {
-    'q': NOTES[0],
-    '2',
-    'w',
-    '3',
-    'e',
-    'r',
-    '5',
-    't',
-    '6',
-    'y',
-    '7',
-    'u',
-    'i',
-    '9',
-    'o',
-    '0',
-    'p',
-    'z',
-    's',
-    'x',
-    'd',
-    'c',
-    'f',
-    'v',
-    'b',
-    'h',
-    'n',
-    'j',
-    'm',
-    ',',
-    'l',
-    '.',
-    'ç',
-    ';',
-    '~',
-    '/'
- }
 
-KEYS = {
-    ''
-}
+with open('config.json') as config:
+    config = json.loads(config.read())
+
+keys = (config['keys'])
+
+class Instrument:
+    def __init__(self, name):
+        self.name = name
+
