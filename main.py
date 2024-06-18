@@ -34,22 +34,31 @@ def main():
 
 class ComputerPiano:
     def __init__(self, notes='C0-B9'):
-        self.notes = self.list_of_keys(notes)
-        self.instruments = []
+        self.notes = {note: None for note in self.list_of_notes(notes)}
 
-    def list_of_notes(self, notes):
+    def list_of_notes(self, note_range):
         # notes = 'C0'
         # notes = 'C0-B9'
         # notes = ['C0','C1']
         # return = ['C0','C1']
-        if isinstance(notes, str):
-            if '-' not in notes:
-                return np.array([notes])
-            start, end = notes.split('-', 2)
+        if isinstance(note_range, str):
+            if '-' not in note_range:
+                return np.array([note_range])
+            start, end = note_range.split('-', 2)
             start_note = librosa.note_to_midi(start)
             end_note = librosa.note_to_midi(end)
             return librosa.midi_to_note(range(start_note, end_note+1))
-        return notes
+        return note_range
+
+    def add_instrument(self, instrument_instance):
+        list_of_notes = self.list_of_notes(instrument_instance.note_range)
+        for note in list_of_notes:
+            self.notes[note] = instrument_instance
+
+
+    def play(self, note):
+        instrument = self.notes[note]
+        instrument.play(note)
 
 
 class Instrument:
@@ -58,7 +67,20 @@ class Instrument:
         self.note_range = note_range
         self.octave_changer = octave_changer
 
+    def play(self, notes):
+        print(self.name)
+        if isinstance(notes, str):
+            notes = [notes]
+        print(notes)
+
+
+class Piano(Instrument):
+    def __init__(self):
+        super().__init__(name='Piano', note_range='C1-B2', octave_changer=True)
+
 
 if __name__ == '__main__':
-    a = ComputerPiano()
-    print(a.notes)
+    computer_piano = ComputerPiano()
+    piano = Piano()
+    computer_piano.add_instrument(piano)
+    computer_piano.play('C1')
