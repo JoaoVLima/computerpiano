@@ -61,8 +61,8 @@ def get_samples(notes_dict, num_samples=BUFFER_SIZE):
 
 
 # Initialize PyAudio and Pygame
-p = pyaudio.PyAudio()
-stream = p.open(
+audio = pyaudio.PyAudio()
+stream = audio.open(
         rate=SAMPLE_RATE,
         channels=1,
         format=pyaudio.paInt16,
@@ -106,4 +106,4 @@ except KeyboardInterrupt as err:
 finally:
     pygame.quit()
     stream.close()
-    p.terminate()
+    audio.terminate()

@@ -21,9 +21,8 @@ with open('config.json') as config:
 # 96-107 octave 7
 # 108-119 octave 8
 # 120-131 octave 9
-NOTES = librosa.midi_to_note(range(12, 132), unicode=False)
 
-
+NOTES = librosa.midi_to_note(range(12, 131+1), unicode=False)
 # ['C0',  'C♯0',  'D0',   'D♯0',  'E0',   'F0',   'F♯0',  'G0',   'G♯0',  'A0',
 #  'A♯0', 'B0',   'C1',   'C♯1',  'D1',   'D♯1',  'E1',   'F1',   'F♯1',  'G1',
 #  'G♯1', 'A1',   'A♯1',  'B1',   'C2',   'C♯2',  'D2',   'D♯2',  'E2',   'F2',
@@ -112,3 +111,4 @@ if __name__ == '__main__':
     computer_piano.add_instrument(Piano())
     computer_piano.add_instrument(Drums(), 'C0-A#3')
     computer_piano.play(['C0', 'B2', 'G3', 'A#4', 'D#5'])
+    
