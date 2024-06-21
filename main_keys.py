@@ -5,14 +5,12 @@ import pyaudio
 import pygame
 import librosa
 
-# Constants
-BUFFER_SIZE = 256
+BUFFER_SIZE = 64
 SAMPLE_RATE = 44100
 NOTE_AMP = 0.1
 
-
-# Key to frequency mapping for a basic C-major scale
 KEY_FREQUENCY_MAP = {
+    pygame.K_TAB: librosa.note_to_hz('B3'),
     pygame.K_q: librosa.note_to_hz('C4'),
     pygame.K_2: librosa.note_to_hz('C#4'),
     pygame.K_w: librosa.note_to_hz('D4'),
@@ -42,6 +40,12 @@ KEY_FREQUENCY_MAP = {
     pygame.K_n: librosa.note_to_hz('D6'),
     pygame.K_j: librosa.note_to_hz('D#6'),
     pygame.K_m: librosa.note_to_hz('E6'),
+    pygame.K_COMMA: librosa.note_to_hz('F6'),
+    pygame.K_l: librosa.note_to_hz('F#6'),
+    pygame.K_PERIOD: librosa.note_to_hz('G6'),
+    pygame.KSCAN_RGUI: librosa.note_to_hz('G#6'),
+    pygame.K_SEMICOLON: librosa.note_to_hz('A6'),
+    pygame.K_RSHIFT: librosa.note_to_hz('B6'),
 }
 
 
