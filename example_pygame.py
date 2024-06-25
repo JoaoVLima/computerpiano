@@ -49,7 +49,6 @@ KEY_FREQUENCY_MAP = {
 }
 
 
-# Helper functions
 def get_sin_oscillator(freq=55, amp=1, sample_rate=SAMPLE_RATE):
     increment = (2 * math.pi * freq) / sample_rate
     return (
@@ -99,7 +98,7 @@ try:
             if last_notes != notes_dict:
                 last_notes = notes_dict.copy()
                 print(len(notes_dict), notes_dict)
-            # Play the notes
+
             samples = get_samples(notes_dict)
             samples = np.int16(samples).tobytes()
             stream.write(samples)

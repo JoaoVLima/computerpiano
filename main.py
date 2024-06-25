@@ -3,7 +3,7 @@ import itertools
 from collections import OrderedDict
 import numpy as np
 import pyaudio
-# import pygame
+import pygame
 import librosa
 import json
 
