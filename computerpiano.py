@@ -1,9 +1,4 @@
-import math
-import itertools
-from collections import OrderedDict
 import numpy as np
-import pyaudio
-import pygame
 import librosa
 import json
 
@@ -84,6 +79,8 @@ class ComputerPiano:
             note_to_play = instrument_instance.note_to_play(note_instrument)
             notes_to_play.append(note_to_play)
 
+        return notes_to_play
+
 
 class Instrument:
     def __init__(self, name, note_range, octave_changer=True):
@@ -110,5 +107,5 @@ if __name__ == '__main__':
     computer_piano = ComputerPiano()
     computer_piano.add_instrument(Piano())
     computer_piano.add_instrument(Drums(), 'C0-A#3')
-    computer_piano.play(['C0', 'B2', 'G3', 'A#4', 'D#5'])
+    print(computer_piano.play(['C0', 'B2', 'G3', 'A#4', 'D#5']))
     
